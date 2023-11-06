@@ -1,6 +1,7 @@
 # Avarice - Discord Bot
 
 Welcome to the Avarice Discord Bot repository! This bot is designed to integrate Discord with a Project Zomboid server and provide enhanced functionality through GPT AI interactions.
+
 ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## Prerequisites
