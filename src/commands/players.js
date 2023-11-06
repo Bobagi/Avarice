@@ -1,8 +1,10 @@
 const Gamedig = require("gamedig");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "players",
-  description: "Players command",
+  description:
+    "List all players currently connected to the Project Zomboid server",
   async execute(message, args) {
     try {
       const queryOptions = {
@@ -12,13 +14,31 @@ module.exports = {
       };
 
       const data = await Gamedig.query(queryOptions);
-      message.channel.send(
-        `There are currently ${data.players.length} players connected to the server.`
-      );
+      if (data.players.length > 0) {
+        let response = "Current Players:\n";
+        data.players.forEach((player, index) => {
+          // Accessing score and time from the 'raw' object of each player
+          const playerScore = player.raw.score;
+          const playerTime = player.raw.time;
+          // Converting time played from seconds to a more readable format, if needed
+          const timePlayed = new Date(playerTime * 1000)
+            .toISOString()
+            .substr(11, 8);
+
+          response += `${index + 1}. ${
+            player.name
+          }, Score: ${playerScore}, Current Session: ${timePlayed}\n`;
+        });
+        message.channel.send(response);
+      } else {
+        message.channel.send(
+          "There are no players currently connected to the server."
+        );
+      }
     } catch (error) {
       console.error(`Failed to query server: ${error}`);
       message.channel.send(
-        "Sorry, I could not get the player count at this time."
+        "Sorry, I could not retrieve the list of players at this time."
       );
     }
   },
