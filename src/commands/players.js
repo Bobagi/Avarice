@@ -1,5 +1,4 @@
 const Gamedig = require("gamedig");
-const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "players",
