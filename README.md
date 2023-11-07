@@ -49,6 +49,20 @@ npm start
 
 The bot should now be running and ready to connect to both your Discord and Project Zomboid server.
 
+If you want to keep the bot running even closing the terminal, start a new screen before run the code above:
+
+```sh
+screen -S avarice
+```
+
+To detach from the screen session (and keep the bot running in the background), press `Ctrl + A`, then `D`.
+
+And for attach the screen again:
+
+```sh
+screen -r avarice
+```
+
 ## Usage
 
 - `!help` - To get all commands registered.
