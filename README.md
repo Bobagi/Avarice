@@ -21,7 +21,7 @@ To set up the bot, follow these steps:
 2. Navigate to the project directory and create a `.env` file.
 
 ```sh
-cd path/to/Avarice
+cd opt/Avarice
 touch .env
 ```
 
